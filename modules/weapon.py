@@ -1,6 +1,6 @@
-from item import *
-from enemy import *
-from ..player import global_player as player1
+from modules.item import *
+from modules.enemy import *
+from player import global_player as player1
 class Weapon(Item):
     def __init__(self, name, description, value, weight, damage, type, cost, equip_message, unequip_message):
         self.damage = damage

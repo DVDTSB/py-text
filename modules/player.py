@@ -1,4 +1,3 @@
-from modules.item import *
 from modules.world import get_room
 class Player():
     def __init__(self, name, inventory, max_inventory_size, health, max_health, stamina, max_stamina, mana, max_mana, level, exp, next_level_multiplier, attack, defense, gold, coords):

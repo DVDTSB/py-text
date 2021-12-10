@@ -14,4 +14,5 @@ from player import global_player as player1
 
 def load():
     world.get_world("map.txt")
+    player.coords = world.coords
     player1.inventory = [basic_sword, skull, chainmail_armour]
