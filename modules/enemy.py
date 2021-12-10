@@ -1,47 +1,26 @@
 from modules.item import *
-from modules.world import get_room
-class Player():
-    def __init__(self, name, inventory, max_inventory_size, health, max_health, stamina, max_stamina, mana, max_mana, level, exp, next_level_multiplier, attack, defense, gold, coords):
+class Enemy():
+    def __init__(self, name, keywords, inventory, health, max_health, stamina, max_stamina, level, drop_exp, attack, defense, gold, location):
         self.name = name
         self.inventory = inventory
-        self.max_inventory_size = max_inventory_size
         self.health = health
         self.max_health = max_health
         self.stamina = stamina
         self.max_stamina = max_stamina
-        self.mana = mana
-        self.max_mana = max_mana
         self.level = level
-        self.exp = exp
-        self.next_level_multiplier = next_level_multiplier
+        self.drop_exp = drop_exp
         self.attack = attack
         self.defense = defense
         self.gold = gold
-        self.coords = coords
-        self.location = get_room(coords[0], coords[1])
+        self.location = location
         self.is_alive = True
-    def add_gold(self, amount):
-        self.gold += amount
-    def add_exp(self, amount):
-        self.exp += amount
-    def equip_item(self, item):
-        print(item.equip_message)
-        self.inventory.append(item)
-    def unequip_item(self, item):
-        for i in self.inventory:
-            if i.name.lower() == item[0].lower():
-                print(i.unequip_message)
-                self.inventory.remove(i)
-                return True
-        print("You don't have that item equipped.")
+        self.keywords = keywords
     def add_health(self, amount):
         self.health += amount
     def add_attack(self, amount):
         self.attack += amount
     def add_defense(self, amount):
         self.defense += amount
-    def add_level(self, amount):
-        self.level += amount
     def set_location(self, location):
         self.location = location
     def print_inventory(self):

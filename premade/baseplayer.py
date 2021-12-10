@@ -1,2 +1,5 @@
-import modules.player as player
-baseplayer = player.Player("John",[], 10, 10, 10, 10, 10, 1, 0, 2, 5, 6, 0, {0,1})
+
+from modules.player import Player
+
+
+baseplayer = Player("Player",[],10,10,10,10,10,10,10,1,0,2,5,5,0,[0,1])
