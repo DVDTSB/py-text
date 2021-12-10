@@ -9,6 +9,7 @@ class Room():
             setattr(self, key, value)
         rooms.append(self)
         
+        
 def search_room(name):
     for room in rooms:
         if room.name == name:

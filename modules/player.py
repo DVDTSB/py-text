@@ -1,4 +1,4 @@
-from modules.world import get_room
+from world import get_room, print_exits
 class Player():
     def __init__(self, name, inventory, max_inventory_size, health, max_health, stamina, max_stamina, mana, max_mana, level, exp, next_level_multiplier, attack, defense, gold, coords):
         self.name = name
@@ -17,7 +17,7 @@ class Player():
         self.defense = defense
         self.gold = gold
         self.coords = coords
-        self.location = get_room(coords[0], coords[1])
+        self.location = get_room(self.coords[0], self.coords[1])
         self.is_alive = True
     def add_gold(self, amount):
         self.gold += amount
@@ -56,4 +56,32 @@ class Player():
         print("Attack: " + str(self.attack))
         print("Defense: " + str(self.defense))
         print("Gold: " + str(self.gold))
+        
+    def go(self, direction):
+        if direction.lower() == "north" or direction.lower() == "n":
+            self.move_north()
+        elif direction.lower() == "south" or direction.lower() == "s":
+            self.move_south()
+        elif direction.lower() == "east" or direction.lower() == "e":
+            self.move_east()
+        elif direction.lower() == "west" or direction.lower() == "w":
+            self.move_west()
     
+    def move(self, dx, dy):
+        if get_room(self.coords[0]+dx, self.coords[1]+dy) != None:
+            print(self.location.exit_message)
+            self.coords[0] += dx
+            self.coords[1] += dy
+            self.location = get_room(self.coords[0], self.coords[1])
+            print(self.location.description)
+            print_exits(coords[0], coords[1])
+        else:
+            print("You can't go that way.")
+    def move_north(self):
+        self.move(0, -1)
+    def move_south(self):
+        self.move(0, 1)
+    def move_east(self):
+        self.move(1, 0)
+    def move_west(self):
+        self.move(-1, 0)    
