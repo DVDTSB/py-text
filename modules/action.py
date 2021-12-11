@@ -15,10 +15,9 @@ class Action():
         
 
 def execute_action(command):
-    print(actions)
     for ac in actions:
         for keyword in ac.keywords:
             if (command.lower().split()[0]==keyword):
                 ac.execute("".join(command.split()[1:]))
                 return True
-    print("I dooon't understand")
+    print("I don't understand")

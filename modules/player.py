@@ -1,6 +1,8 @@
-from world import get_room, print_exits
+from modules.world import get_room, startcoords, print_exits
+from modules.room import *
+from world import global_world 
 class Player():
-    def __init__(self, name, inventory, max_inventory_size, health, max_health, stamina, max_stamina, mana, max_mana, level, exp, next_level_multiplier, attack, defense, gold, coords):
+    def __init__(self, name, inventory, max_inventory_size, health, max_health, stamina, max_stamina, mana, max_mana, level, exp, next_level_multiplier, attack, defense, gold):
         self.name = name
         self.inventory = inventory
         self.max_inventory_size = max_inventory_size
@@ -16,7 +18,9 @@ class Player():
         self.attack = attack
         self.defense = defense
         self.gold = gold
-        self.coords = coords
+        self.coords = list(startcoords)
+        
+        print(self.coords)
         self.location = get_room(self.coords[0], self.coords[1])
         self.is_alive = True
     def add_gold(self, amount):
@@ -57,7 +61,8 @@ class Player():
         print("Defense: " + str(self.defense))
         print("Gold: " + str(self.gold))
         
-    def go(self, direction):
+    def go(self, a):
+        direction = a[0]
         if direction.lower() == "north" or direction.lower() == "n":
             self.move_north()
         elif direction.lower() == "south" or direction.lower() == "s":
@@ -74,7 +79,7 @@ class Player():
             self.coords[1] += dy
             self.location = get_room(self.coords[0], self.coords[1])
             print(self.location.description)
-            print_exits(coords[0], coords[1])
+            print_exits(self.coords[0], self.coords[1])
         else:
             print("You can't go that way.")
     def move_north(self):

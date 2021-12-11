@@ -1,7 +1,9 @@
 from world import global_world
 from modules.room import search_room
-coords = (0, 0)
 def get_world(name):
+    for x in range(-6, 6):
+        for y in range(-6, 6):
+            global_world[(x, y)] = None
     with open('resources/{}'.format(name), 'r') as f:
         rows = f.readlines()
     x_max = len(rows[0].split('\t'))
@@ -9,15 +11,27 @@ def get_world(name):
         cols = rows[y].split('\t')
         for x in range(x_max):
             tile_name = cols[x].replace('\n', '')
-            if tile_name == 'starting_room':
-                coords = (x, y)
-            global_world[(x, y)] = None if tile_name == '' else search_room(tile_name)
+            
+            if tile_name == 'Starting room':
+                global startcoords 
+                startcoords = (x, y)
+                print("Starting room found at {}".format((x, y)))
+            
+            if tile_name == "":
+                global_world[(x, y)].name = "banana"
+            
+            elif search_room(tile_name) != None:
+                global_world[(x,y)]=search_room(tile_name)
+                print(global_world[(x,y)].description)
             
 def get_room(x, y):
-    if (x, y) in global_world:
-        return global_world[(x, y)]
-    else:
+    try:
+        if global_world[(x,y)] != None:
+            return global_world[(x, y)]
         return None
+    except:
+        return None
+    
     
 def print_exits(x, y):
     result = ""

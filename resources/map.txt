@@ -1,1 +1,1 @@
-starting_room starting_room
+Second room	Starting room	Second room
