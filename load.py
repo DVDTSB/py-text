@@ -1,19 +1,9 @@
-
-
-
-
-from premade.rooms import *
+from premade.objects.rooms import *
 
 def load():
     import modules.world as world
     world.get_world("map.txt")
     
-    import modules.player as player
-    import modules.item as item
-    import modules.weapon as weapon
-    import modules.armour as armour
-    import modules.action as action
+    print(starting_room.description)
     
-    #from player import global_player as player1
-    #player.coords = world.coords
-    #player1.inventory = [basic_sword, skull, chainmail_armour]
+    print(world.print_exits(world.startcoords[0], world.startcoords[1]))

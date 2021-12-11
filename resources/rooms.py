@@ -1,1 +1,1 @@
-from premade.rooms import *
+from premade.objects.rooms import *
