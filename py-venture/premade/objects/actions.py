@@ -6,3 +6,4 @@ statistics = Action("Statistics", "You search your mind to see a few of your sta
 equip = Action("Equip", "You equip an item.", ["equip", "e"], global_player.equip_item)
 unequip = Action("Unequip", "You unequip an item.", ["unequip", "u"], global_player.unequip_item)
 go = Action("Go", "You go somewhere.", ["go", "g"], global_player.go)
+eat = Action("Eat", "You eat something.", ["eat", "e"], global_player.eat)
