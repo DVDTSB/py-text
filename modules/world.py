@@ -31,14 +31,14 @@ def get_room(x, y):
     
 def print_exits(x, y):
     result = ""
-    if get_room(x+1, y) is not None:
+    if get_room(x+1, y) != None:
         result += "In the east you can see {}\n".format(get_room(x+1, y).short_desc)
-    if get_room(x-1, y) is not None:
+    if get_room(x-1, y) != None:
         result += "In the west you can see {}\n".format(get_room(x-1, y).short_desc)
-    if get_room(x, y+1) is not None:
+    if get_room(x, y+1) != None:
         result += "In the south you can see {}\n".format(get_room(x, y+1).short_desc)
-    if get_room(x, y-1) is not None:
-        result += "In the north you can see {}\n".format(get_room(x, y+1).short_desc)
+    if get_room(x, y-1) != None:
+        result += "In the north you can see {}\n".format(get_room(x, y-1).short_desc)
     if result == "":
         result = "There are no exits from here."
-    return result
+    print(result)

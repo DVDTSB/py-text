@@ -19,8 +19,6 @@ class Player():
         self.defense = defense
         self.gold = gold
         self.coords = list(startcoords)
-        
-        print(self.coords)
         self.location = get_room(self.coords[0], self.coords[1])
         self.is_alive = True
     def add_gold(self, amount):
@@ -48,9 +46,12 @@ class Player():
     def set_location(self, location):
         self.location = location
     def print_inventory(self):
-        print("Inventory:")
-        for item in self.inventory:
-            print(item.name + " : " + item.description + " The value of this item is " + str(item.value) + " gold.")
+        if len(self.inventory) == 0:
+            print("You have nothing.")
+        else:
+            print("Inventory:")
+            for item in self.inventory:
+                print(item.name + " : " + item.description + " The value of this item is " + str(item.value) + " gold.")
     def print_stats(self):
         print("Name: " + self.name)
         print("Level: " + str(self.level))
@@ -78,8 +79,8 @@ class Player():
             self.coords[0] += dx
             self.coords[1] += dy
             self.location = get_room(self.coords[0], self.coords[1])
-            print(self.location.description)
-            print(print_exits(self.coords[0], self.coords[1]))
+            self.location.print_room()
+            print_exits(self.coords[0], self.coords[1])
         else:
             print("You can't go that way.")
     def move_north(self):
