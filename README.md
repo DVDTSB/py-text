@@ -9,7 +9,7 @@ Do you want to create a complex game using it, with original mechanics? Easy, ju
 Do you want create a simple game for your friends to have fun with? Use the premade items, rooms, enemies, spells and others to quickly make a small game!
 ## what it currently includes
 The main modules currently include : 
-- Player, 
+- Player,
 - Item
 - Weapons
 - Armour
