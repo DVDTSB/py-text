@@ -1,6 +1,6 @@
-from world import global_world
+from resources.world import global_world
 from modules.room import search_room
-startcoords = (0, 0)
+startcoords = (3, 3)
 def get_world(name):
     for x in range(-6, 6):
         for y in range(-6, 6):

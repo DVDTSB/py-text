@@ -1,13 +1,12 @@
 from modules.item import *
 class Enemy():
-    def __init__(self, name, keywords, inventory, health, max_health, stamina, max_stamina, level, drop_exp, attack, defense, gold, location):
+    def __init__(self, name, keywords, inventory, health, max_health, stamina, max_stamina, drop_exp, attack, defense, gold, location):
         self.name = name
         self.inventory = inventory
         self.health = health
         self.max_health = max_health
         self.stamina = stamina
         self.max_stamina = max_stamina
-        self.level = level
         self.drop_exp = drop_exp
         self.attack = attack
         self.defense = defense

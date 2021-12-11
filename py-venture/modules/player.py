@@ -24,11 +24,6 @@ class Player():
         self.location = get_room(self.coords[0], self.coords[1])
         self.is_alive = True
 
-    def add_gold(self, amount):
-        self.gold += amount
-
-    def add_exp(self, amount):
-        self.exp += amount
 
     def equip_item(self, item):
         for i in self.location.items:
@@ -47,21 +42,6 @@ class Player():
                 self.inventory.remove(i)
                 return True
         print("You don't have that item equipped.")
-
-    def add_health(self, amount):
-        self.health += amount
-
-    def add_attack(self, amount):
-        self.attack += amount
-
-    def add_defense(self, amount):
-        self.defense += amount
-
-    def add_level(self, amount):
-        self.level += amount
-
-    def set_location(self, location):
-        self.location = location
 
     def print_inventory(self):
         if len(self.inventory) == 0:
