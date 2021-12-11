@@ -8,13 +8,12 @@ import modules.weapon as weapon
 import modules.armour as armour
 import modules.action as action
 
-from premade.items import *
-from premade.weapons import *
-from premade.armours import *
-from premade.actions import *
+from premade.objects.items import *
+from premade.objects.weapons import *
+from premade.objects.armours import *
+from premade.objects.actions import *
 
 from player import global_player as player1
-
 
 
 while(True):

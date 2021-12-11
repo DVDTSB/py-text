@@ -79,7 +79,7 @@ class Player():
             self.coords[1] += dy
             self.location = get_room(self.coords[0], self.coords[1])
             print(self.location.description)
-            print_exits(self.coords[0], self.coords[1])
+            print(print_exits(self.coords[0], self.coords[1]))
         else:
             print("You can't go that way.")
     def move_north(self):

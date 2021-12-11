@@ -15,14 +15,10 @@ def get_world(name):
             if tile_name == 'Starting room':
                 global startcoords 
                 startcoords = (x, y)
-                print("Starting room found at {}".format((x, y)))
-            
             if tile_name == "":
-                global_world[(x, y)].name = "banana"
-            
+                global_world[(x, y)] = None
             elif search_room(tile_name) != None:
                 global_world[(x,y)]=search_room(tile_name)
-                print(global_world[(x,y)].description)
             
 def get_room(x, y):
     try:
