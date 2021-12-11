@@ -1,4 +1,4 @@
-from premade.objects.rooms import *
+from resources.rooms import *
 def load():
     import modules.world as world
     world.get_world("map.txt")
