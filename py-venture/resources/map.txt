@@ -1,3 +1,4 @@
-Starting room	Second room
-	Path
-	Bananier room
+Path	Path	Bananier room
+Starting room	Second room		Path
+	Path		Path
+	Path	Path	Path

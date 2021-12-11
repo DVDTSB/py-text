@@ -1,5 +1,6 @@
 import modules.room as room
 import premade.objects.items as items
+import premade.objects.food as food
 starting_room = room.Room(
     "Starting room",
     "You find yourself in a dark room, the only light coming from a torch. It looks empty.", 
@@ -12,7 +13,7 @@ second_room = room.Room(
     "A spacios room, with enscriptions on the walls and floor. A weird shine comes from them.", 
     "You leave the room, the light coming from the runes is getting dimmer", 
     "a room with shining runes.",
-    [],[]
+    [food.carrot],[]
 )
 path_room = room.Room(
     "Path",
