@@ -1,6 +1,5 @@
 from modules.world import get_room, startcoords, print_exits
 from modules.room import *
-from world import global_world 
 class Player():
     def __init__(self, name, inventory, max_inventory_size, health, max_health, stamina, max_stamina, mana, max_mana, level, exp, next_level_multiplier, attack, defense, gold):
         self.name = name
@@ -26,12 +25,18 @@ class Player():
     def add_exp(self, amount):
         self.exp += amount
     def equip_item(self, item):
-        print(item.equip_message)
-        self.inventory.append(item)
+        for i in self.location.items:
+            if i.name.lower() == item[0].lower():
+                print(i.equip_message)
+                self.location.items.remove(i)
+                self.inventory.append(i)
+                return True
+        print("There is no " + item[0] + " here.")
     def unequip_item(self, item):
         for i in self.inventory:
             if i.name.lower() == item[0].lower():
                 print(i.unequip_message)
+                self.location.items.append(i)
                 self.inventory.remove(i)
                 return True
         print("You don't have that item equipped.")

@@ -4,7 +4,7 @@ def get_world(name):
     for x in range(-6, 6):
         for y in range(-6, 6):
             global_world[(x, y)] = None
-    with open('resources/{}'.format(name), 'r') as f:
+    with open('py-adventure/resources/{}'.format(name), 'r') as f:
         rows = f.readlines()
     x_max = len(rows[0].split('\t'))
     for y in range(len(rows)):

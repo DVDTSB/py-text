@@ -13,7 +13,7 @@ class Room():
         if self.items != []:
             print("You see:")
             for item in self.items:
-                print(item.name)
+                print("a " + item.name.lower()+ ", ")
         
         
 def search_room(name):
