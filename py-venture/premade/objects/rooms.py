@@ -1,6 +1,7 @@
 import modules.room as room
 import premade.objects.items as items
 import premade.objects.food as food
+import premade.objects.enemies as enemies
 starting_room = room.Room(
     "Starting room",
     "You find yourself in a dark room, the only light coming from a torch. It looks empty.", 
@@ -27,5 +28,5 @@ bananier_room = room.Room(
     "A room with a bananier", 
     "You leave the room", 
     "a room with a bananier",
-    [],[]
+    [],[enemies.orc]
 )

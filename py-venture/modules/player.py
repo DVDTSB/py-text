@@ -2,7 +2,6 @@ from modules.world import get_room, startcoords, print_exits
 from modules.room import *
 from modules.food import Food
 
-
 class Player():
     def __init__(self, name, inventory, max_inventory_size, health, max_health, stamina, max_stamina, mana, max_mana, level, exp, next_level_multiplier, attack, defense, gold):
         self.name = name
@@ -22,6 +21,7 @@ class Player():
         self.gold = gold
         self.coords = list(startcoords)
         self.location = get_room(self.coords[0], self.coords[1])
+        print(type(get_room(self.coords[0], self.coords[1])))
         self.is_alive = True
 
 
@@ -113,3 +113,24 @@ class Player():
 
     def move_west(self):
         self.move(-1, 0)
+    def attack_enemy(self, arg):
+        arg = arg[0].split()
+        enemy = arg[0]
+        weapon = arg[1]
+        for i in self.location.enemies:
+            print(i.name.lower, enemy.lower())
+            if i.name.lower() == enemy.lower:
+                for j in self.inventory:
+                    if j.name.lower() == weapon.lower():
+                        print("You attack the " + i.name + " with the " + j.name + ".")
+                        i.health -= int(j.damage*(self.attack-10)/(i.defense-10))
+                        if i.health < 0:
+                            i.health = 0
+                        print("You dealt " + str(int(j.damage*(self.attack-10)/(i.defense-10))) + " damage to the " + i.name + ".")
+                        if i.health == 0:
+                            self.location.enemies.remove(i)
+                            self.exp += i.exp
+                            print("You have killed the " + i.name + ".")
+                        return True
+                print("You don't have that item.")
+        print("There is no " + enemy + " here.")

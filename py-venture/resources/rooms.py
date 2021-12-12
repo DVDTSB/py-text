@@ -1,6 +1,6 @@
 from modules.room import Room
 from premade.objects.rooms import *
-import items as items
+import resources.items as items
 
 starting_room = room.Room(
     "Starting room",

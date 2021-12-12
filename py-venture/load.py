@@ -1,6 +1,10 @@
-from resources.rooms import *
 def load():
     import modules.world as world
+    import resources.rooms
     world.get_world("map.txt")
-    starting_room.print_room()
-    world.print_exits(world.startcoords[0],world.startcoords[1])
+    
+    print(world.startcoords)
+    
+    import resources.player as player
+    player.global_player.location.print_room()
+    world.print_exits(player.global_player.coords[0], player.global_player.coords[1])
