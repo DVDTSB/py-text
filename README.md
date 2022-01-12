@@ -1,4 +1,6 @@
 # py-text
+##
+py text is currently being rewritten because it has been prooven to be very hard to mentain and very fragile, except the prerelease to come soon.
 ## what is this
 Good question. What we are aiming it to be is a small, bare-bone, objiect oriented, console text adventure game engine, made in python, for python users, writters, and people who just want to have fun without learning how to properly code something like this.
 ## how do i use this
